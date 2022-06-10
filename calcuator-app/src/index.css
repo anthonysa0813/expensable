@@ -31,3 +31,7 @@ button {
 .check {
   background: rgb(16, 171, 192);
 }
+
+.currentOp {
+  border: 1px solid blue;
+}

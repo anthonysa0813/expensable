@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Calculator } from "../styles/calculator";
 import check from "../images/check.svg";
 import equal from "../images/equal.svg";
+import { formatNumber } from "../helper";
 
 const CalculatorApp = ({ setShowCalc }) => {
   const [value, setValue] = useState(0);
@@ -9,6 +10,7 @@ const CalculatorApp = ({ setShowCalc }) => {
   const [num2, setNum2] = useState(0);
   const [operation, setOperation] = useState(null);
   const [showIcon, setshowIcon] = useState(false);
+  const [currentOperation, setCurrentOperation] = useState(false);
 
   const handleNumber = (num) => {
     if (value == 0) {
@@ -20,10 +22,18 @@ const CalculatorApp = ({ setShowCalc }) => {
       setNum1(String(value + num));
     }
     if (operation !== null) {
-      setValue(String(`${value} ${operation} ${num}`));
+      setValue(String(num2 + num));
       setNum2(String(num2 + num));
     }
   };
+
+  // useEffect(() => {
+  //   console.log({ num1, num2 });
+  //   if (num2) {
+  //     console.log(`${num1} ${operation} ${num2}`);
+  //   }
+  //   setValue(`${num1} ${operation} ${num2}`);
+  // }, [operation]);
 
   const handleOperation = (operationName) => {
     // console.log(operationName);
@@ -38,6 +48,7 @@ const CalculatorApp = ({ setShowCalc }) => {
         currentValue = Number(num1) + Number(num2);
         setNum1(currentValue);
         setNum2(0);
+
         setValue(currentValue);
         // setNum1(currentValue);
         break;
@@ -48,7 +59,20 @@ const CalculatorApp = ({ setShowCalc }) => {
         setValue(currentValue);
         // setNum1(currentValue);
         break;
-
+      case "x":
+        currentValue = Number(num1) * Number(num2);
+        setNum1(currentValue);
+        setNum2(0);
+        setValue(currentValue);
+        // setNum1(currentValue);
+        break;
+      case "÷":
+        currentValue = Number(num1) / Number(num2);
+        setNum1(currentValue);
+        setNum2(0);
+        setValue(currentValue);
+        // setNum1(currentValue);
+        break;
       default:
         break;
     }
@@ -63,15 +87,21 @@ const CalculatorApp = ({ setShowCalc }) => {
           onClick={() => setShowCalc((show) => !show)}
         ></i>
       </div>
-      <div className="result">
-        <span>
+      <div className="result ">
+        <span className="">
           <i className="icon-dollar"></i>
-          {value}
+          {formatNumber(value)}
         </span>
+        <span className="iconOperation">{operation}</span>
       </div>
       <div className="numbersButtons ">
         <div className="numberField">
-          <i className="icon-divide"></i>
+          <i
+            className="icon-divide"
+            onClick={() => {
+              setOperation("÷");
+            }}
+          ></i>
         </div>
         <div className="numberField" onClick={() => handleNumber(1)}>
           <span>1</span>
@@ -86,7 +116,12 @@ const CalculatorApp = ({ setShowCalc }) => {
           <i className="icon-rest"></i>
         </div>
         <div className="numberField">
-          <i className="icon-close"></i>
+          <i
+            className="icon-close"
+            onClick={() => {
+              setOperation("x");
+            }}
+          ></i>
         </div>
         <div className="numberField" onClick={() => handleNumber(4)}>
           <span>4</span>
@@ -98,9 +133,16 @@ const CalculatorApp = ({ setShowCalc }) => {
           <span>6</span>
         </div>
         <div className="numberField">
-          <i className="icon-delete"></i>
+          <i
+            className="icon-delete"
+            onClick={() => {
+              setValue(0);
+              setNum1(0);
+              setOperation(null);
+            }}
+          ></i>
         </div>
-        <div className="numberField" onClick={showIcon && handleResult}>
+        <div className={`numberField `} onClick={showIcon && handleResult}>
           <i
             className="icon-minus"
             onClick={() => {
@@ -117,7 +159,12 @@ const CalculatorApp = ({ setShowCalc }) => {
         <div className="numberField" onClick={() => handleNumber(9)}>
           <span>9</span>
         </div>
-        <div className="numberField" onClick={() => handleOperation("+")}>
+        <div
+          className={`numberField ${currentOperation && "currentOp"}`}
+          onClick={() => {
+            handleOperation("+");
+          }}
+        >
           <i className="icon-plus"></i>
         </div>
         <div className="numberField">

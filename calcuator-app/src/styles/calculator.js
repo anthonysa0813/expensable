@@ -43,6 +43,13 @@ export const Calculator = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    & .iconOperation {
+      position: absolute;
+      right: 20px;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
   }
   & .numbersButtons {
     grid-area: num;
