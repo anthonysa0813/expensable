@@ -41,6 +41,35 @@ const CalculatorApp = ({ setShowCalc }) => {
     setOperation(operationName);
   };
 
+  const restNum = () => {
+    // String(number).slice(number.length - 1, -1);
+    if (operation == null && num2 == 0) {
+      const result = String(num1).slice(Number(num1).length - 1, -1);
+      setNum1(Number(result));
+      setValue(Number(result));
+    }
+
+    if (operation && num2) {
+      const result = String(num2).slice(Number(num2).length - 1, -1);
+      setNum2(Number(result));
+      setValue(Number(result));
+    }
+  };
+
+  const addPoint = () => {
+    if (operation == null && num2 == 0) {
+      const result = num1 + ".";
+      setNum1(result);
+      setValue(result);
+    }
+
+    if (operation && num2) {
+      const result = num2 + ".";
+      setNum2(result);
+      setValue(result);
+    }
+  };
+
   const handleResult = () => {
     let currentValue;
     switch (operation) {
@@ -90,7 +119,8 @@ const CalculatorApp = ({ setShowCalc }) => {
       <div className="result ">
         <span className="">
           <i className="icon-dollar"></i>
-          {formatNumber(value)}
+          {/* {formatNumber(value)} */}
+          {value}
         </span>
         <span className="iconOperation">{operation}</span>
       </div>
@@ -112,7 +142,7 @@ const CalculatorApp = ({ setShowCalc }) => {
         <div className="numberField" onClick={() => handleNumber(3)}>
           <span>3</span>
         </div>
-        <div className="numberField">
+        <div className="numberField" onClick={() => restNum()}>
           <i className="icon-rest"></i>
         </div>
         <div className="numberField">
@@ -173,7 +203,7 @@ const CalculatorApp = ({ setShowCalc }) => {
         <div className="numberField" onClick={() => handleNumber(0)}>
           <span>0</span>
         </div>
-        <div className="numberField">
+        <div className="numberField debug" onClick={() => addPoint()}>
           <i className="icon-point"></i>
         </div>
         <div className="numberField check" onClick={showIcon && handleResult}>
