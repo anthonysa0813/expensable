@@ -1,0 +1,79 @@
+@font-face {
+  font-family: "icomoon";
+  src: url("./fonts/icomoon.eot?178b0t");
+  src: url("./fonts/icomoon.eot?178b0t#iefix") format("embedded-opentype"),
+    url("./fonts/icomoon.ttf?178b0t") format("truetype"),
+    url("./fonts/icomoon.woff?178b0t") format("woff"),
+    url("./fonts/icomoon.svg?178b0t#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "icomoon" !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-plus-circle:before {
+  content: "\e90f";
+}
+.icon-minus-circle:before {
+  content: "\e910";
+}
+.icon-budgets:before {
+  content: "\e900";
+}
+.icon-categories:before {
+  content: "\e901";
+}
+.icon-Currency:before {
+  content: "\e902";
+}
+.icon-date:before {
+  content: "\e903";
+}
+.icon-education:before {
+  content: "\e904";
+}
+.icon-filter:before {
+  content: "\e905";
+}
+.icon-gifts:before {
+  content: "\e906";
+}
+.icon-groceries:before {
+  content: "\e907";
+}
+.icon-health:before {
+  content: "\e908";
+}
+.icon-minus:before {
+  content: "\e909";
+}
+.icon-next:before {
+  content: "\e90a";
+}
+.icon-plus:before {
+  content: "\e90b";
+}
+.icon-rent:before {
+  content: "\e90c";
+}
+.icon-transactions:before {
+  content: "\e90d";
+}
+.icon-transport:before {
+  content: "\e90e";
+}

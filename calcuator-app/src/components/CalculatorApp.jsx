@@ -203,7 +203,7 @@ const CalculatorApp = ({ setShowCalc }) => {
         <div className="numberField" onClick={() => handleNumber(0)}>
           <span>0</span>
         </div>
-        <div className="numberField debug" onClick={() => addPoint()}>
+        <div className="numberField " onClick={() => addPoint()}>
           <i className="icon-point"></i>
         </div>
         <div className="numberField check" onClick={showIcon && handleResult}>
