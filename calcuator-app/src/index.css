@@ -3,6 +3,7 @@
 }
 
 :root {
+  --background-dark: rgba(23, 23, 23, 0.75);
   --gray-900: #111827;
   --gray-700: #374151;
   --gray-600: #4b5563;
@@ -10,6 +11,7 @@
   --gray-200: #d3d3d3;
   --gray-100: #f3f4f6;
   --stone-400: #a8a29e;
+  --pink-600: #db2777;
   --pink-400: #f472b6;
   --primary-300: #f490b1;
   --red-500: #ef4444;
@@ -18,8 +20,10 @@
   --purple-500: #8b5cf6;
   --orange-500: #f97316;
   --light-blue-500: #0ea5e9;
+  --blue-500: #3b82f6;
   --green-600: #059669;
   --teal-500: #14b8a6;
+  --yellow-500: #f59e0b;
 }
 
 body {
@@ -67,4 +71,112 @@ main {
 
 .pink-300 {
   color: var(--primary-300);
+}
+
+.mr-1 {
+  margin-right: 15px;
+}
+
+.border-red {
+  border: 2px solid #f43f5e !important;
+}
+
+.border-orange {
+  border: 2px solid var(--orange-500) !important;
+}
+
+.border-yellow {
+  border: 2px solid var(--yellow-500) !important;
+}
+
+.border-green {
+  border: 2px solid var(--green-600) !important;
+}
+
+.border-teal {
+  border: 2px solid var(--teal-500) !important;
+}
+
+.border-cyan {
+  border: 2px solid var(--cyan-500) !important;
+}
+
+.border-light-blue {
+  border: 2px solid var(--light-blue-500) !important;
+}
+
+.border-blue {
+  border: 2px solid var(--blue-500) !important;
+}
+
+.background-red {
+  background-color: #f43f5e !important;
+  color: white !important;
+}
+
+.background-orange {
+  background-color: var(--orange-500) !important;
+  color: white !important;
+}
+
+.background-yellow {
+  background-color: var(--yellow-500) !important;
+  color: white !important;
+}
+
+.background-green {
+  background-color: var(--green-600) !important;
+  color: white !important;
+}
+
+.background-teal {
+  background-color: var(--teal-500) !important;
+  color: white !important;
+}
+
+.background-cyan {
+  background-color: var(--cyan-500) !important;
+  color: white !important;
+}
+
+.background-light-blue {
+  background-color: var(--light-blue-500) !important;
+  color: white !important;
+}
+
+.background-blue {
+  background-color: var(--blue-500) !important;
+  color: white !important;
+}
+
+.color-red {
+  color: white !important;
+}
+
+.color-orange {
+  color: white !important;
+}
+
+.color-yellow {
+  color: white !important;
+}
+
+.color-green {
+  color: white !important;
+}
+
+.color-teal {
+  color: white !important;
+}
+
+.color-cyan {
+  color: white !important;
+}
+
+.color-light-blue {
+  color: white !important;
+}
+
+.color-blue {
+  color: white !important;
 }

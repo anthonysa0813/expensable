@@ -11,13 +11,22 @@ const Sidebar = () => {
       <div className="nav ">
         <ul>
           <li>
-            <NavLink to="/">Categories</NavLink>
+            <NavLink to="/">
+              <i className="icon-categories mr-1"></i>
+              Categories
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/transactions">Transactions</NavLink>
+            <NavLink to="/transactions">
+              <i className="icon-transactions mr-1"></i>
+              Transactions
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/budgets">Budgets</NavLink>
+            <NavLink to="/budgets">
+              <i className="icon-budgets mr-1"></i>
+              Budgets
+            </NavLink>
           </li>
         </ul>
       </div>
