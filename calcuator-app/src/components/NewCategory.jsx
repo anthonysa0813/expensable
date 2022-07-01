@@ -39,7 +39,7 @@ const NewCategory = ({ setShowModalCategory }) => {
     setIcon(icon);
   };
 
-  const categorySubmit = (e) => {
+  const categorySubmit = async (e) => {
     e.preventDefault();
     if (!name.trim() || !icon.trim() || !color.trim()) {
       setError(true);
@@ -56,7 +56,7 @@ const NewCategory = ({ setShowModalCategory }) => {
       token,
     });
 
-    fetch(`${url}categories`, {
+    const response = await fetch(`${url}categories`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -71,7 +71,9 @@ const NewCategory = ({ setShowModalCategory }) => {
         color: colorName,
         icon: icon,
       }),
-    }).then((response) => console.log(response));
+    });
+    const data = await response.json();
+    return data;
   };
 
   return (

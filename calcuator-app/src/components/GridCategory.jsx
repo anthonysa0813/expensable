@@ -9,6 +9,7 @@ const GridCategory = () => {
   const [categoriesArr, setCategoriesArr] = useState([]);
   const token = JSON.parse(sessionStorage.getItem("token"));
   const [showCalculator, setShowCalculator] = useState(false);
+  const [currentCategory, setcurrentCategory] = useState({});
 
   useEffect(() => {
     getCategories().then((res) => {
@@ -28,8 +29,9 @@ const GridCategory = () => {
     return data;
   };
 
-  const showCalculatorFunc = () => {
+  const showCalculatorFunc = (category) => {
     setShowCalculator(!showCalculator);
+    setcurrentCategory(category);
   };
 
   return (
@@ -42,7 +44,7 @@ const GridCategory = () => {
                 <div
                   className={`categoryCard  border-${category.color}`}
                   key={category.id}
-                  onClick={showCalculatorFunc}
+                  onClick={() => showCalculatorFunc(category)}
                 >
                   <div className={`boxIcon background-${category.color}`}>
                     <i
@@ -55,10 +57,7 @@ const GridCategory = () => {
                   <CalculatorContainer>
                     <CalculatorApp
                       setShowCalculator={setShowCalculator}
-                      iconCalc={category.icon}
-                      theme={category.color}
-                      titleCalc={category.name}
-                      type={category.transaction_type}
+                      category={currentCategory}
                     />
                   </CalculatorContainer>
                 )}

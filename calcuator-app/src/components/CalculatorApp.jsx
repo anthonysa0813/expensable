@@ -3,6 +3,7 @@ import { Calculator } from "../styles/calculator";
 import check from "../images/check.svg";
 import equal from "../images/equal.svg";
 import { formatNumber } from "../helper";
+import { createTransactionFunc } from "../helper/createTransaction";
 
 const CalculatorApp = ({
   setShowCalculator,
@@ -10,6 +11,7 @@ const CalculatorApp = ({
   theme,
   titleCalc,
   type,
+  category,
 }) => {
   const [value, setValue] = useState(0);
   const [num1, setNum1] = useState(0);
@@ -18,6 +20,8 @@ const CalculatorApp = ({
   const [showIcon, setshowIcon] = useState(false);
   const [currentOperation, setCurrentOperation] = useState(false);
 
+  const { color, icon, id, name, transaction_type } = category;
+  const token = sessionStorage.getItem("token");
   const handleNumber = (num) => {
     if (value == 0) {
       setValue(num);
@@ -33,17 +37,7 @@ const CalculatorApp = ({
     }
   };
 
-  // useEffect(() => {
-  //   console.log({ num1, num2 });
-  //   if (num2) {
-  //     console.log(`${num1} ${operation} ${num2}`);
-  //   }
-  //   setValue(`${num1} ${operation} ${num2}`);
-  // }, [operation]);
-
   const handleOperation = (operationName) => {
-    // console.log(operationName);
-    // setValue(`${value}${operationName}`);
     setOperation(operationName);
   };
 
@@ -113,16 +107,21 @@ const CalculatorApp = ({
     }
   };
 
+  const createTransaction = async () => {
+    await createTransactionFunc(id, value, token);
+    setShowCalculator(false);
+  };
+
   return (
     <Calculator className="">
-      <div className={`calcHead background-${theme} `}>
+      <div className={`calcHead background-${color} `}>
         <div className="infoHead ">
           <div className={`boxIcon  border-radius-50 p-2`}>
-            <i className={`icon-${iconCalc}`} style={{ color: theme }}></i>
+            <i className={`icon-${icon}`} style={{ color: color }}></i>
           </div>
           <div className="boxTitle">
-            <h4>Add {type} to</h4>
-            <h3>{titleCalc}</h3>
+            <h4>Add {transaction_type} to</h4>
+            <h3>{name}</h3>
           </div>
         </div>
         <i
@@ -223,10 +222,14 @@ const CalculatorApp = ({
           <span>.</span>
         </div>
         <div
-          className={`numberField check background-${theme}`}
+          className={`numberField check background-${color}`}
           onClick={showIcon && handleResult}
         >
-          {showIcon ? <img src={equal} alt="" /> : <img src={check} alt="" />}
+          {num2 ? (
+            <img src={equal} alt="" />
+          ) : (
+            <img src={check} alt="" onClick={createTransaction} />
+          )}
         </div>
       </div>
       <div className="footer"></div>

@@ -1,16 +1,20 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { monthContext } from "../context/monthContext";
 import { months } from "../helper/monthsArr";
 import { InfoMonthContainer } from "../styles/infoMonth";
 
 const InfoMonth = () => {
   const [currentMonthNum, setCurrentMonthNum] = useState(new Date().getMonth());
+  const { setGlobalMonth } = useContext(monthContext);
 
   const nextMonth = () => {
     setCurrentMonthNum(currentMonthNum + 1);
+    setGlobalMonth(currentMonthNum + 1);
   };
 
   const previousMonth = () => {
     setCurrentMonthNum(currentMonthNum - 1);
+    setGlobalMonth(currentMonthNum - 1);
   };
 
   return (
