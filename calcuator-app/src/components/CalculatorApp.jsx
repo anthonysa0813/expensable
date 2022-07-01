@@ -4,7 +4,13 @@ import check from "../images/check.svg";
 import equal from "../images/equal.svg";
 import { formatNumber } from "../helper";
 
-const CalculatorApp = ({ setShowCalc }) => {
+const CalculatorApp = ({
+  setShowCalculator,
+  iconCalc,
+  theme,
+  titleCalc,
+  type,
+}) => {
   const [value, setValue] = useState(0);
   const [num1, setNum1] = useState(0);
   const [num2, setNum2] = useState(0);
@@ -109,17 +115,25 @@ const CalculatorApp = ({ setShowCalc }) => {
 
   return (
     <Calculator className="">
-      <div className="calcHead">
-        <h3>jiji</h3>
+      <div className={`calcHead background-${theme} `}>
+        <div className="infoHead ">
+          <div className={`boxIcon  border-radius-50 p-2`}>
+            <i className={`icon-${iconCalc}`} style={{ color: theme }}></i>
+          </div>
+          <div className="boxTitle">
+            <h4>Add {type} to</h4>
+            <h3>{titleCalc}</h3>
+          </div>
+        </div>
         <i
           className="icon-close"
-          onClick={() => setShowCalc((show) => !show)}
+          onClick={() => setShowCalculator((show) => console.log(show))}
         ></i>
       </div>
       <div className="result ">
         <span className="">
-          <i className="icon-dollar"></i>
           {/* {formatNumber(value)} */}
+          <i className="icon-dollars"></i>
           {value}
         </span>
         <span className="iconOperation">{operation}</span>
@@ -143,7 +157,7 @@ const CalculatorApp = ({ setShowCalc }) => {
           <span>3</span>
         </div>
         <div className="numberField" onClick={() => restNum()}>
-          <i className="icon-rest"></i>
+          <i className="icon-reset2"></i>
         </div>
         <div className="numberField">
           <i
@@ -163,14 +177,16 @@ const CalculatorApp = ({ setShowCalc }) => {
           <span>6</span>
         </div>
         <div className="numberField">
-          <i
-            className="icon-delete"
+          <span
+            className=""
             onClick={() => {
               setValue(0);
               setNum1(0);
               setOperation(null);
             }}
-          ></i>
+          >
+            C
+          </span>
         </div>
         <div className={`numberField `} onClick={showIcon && handleResult}>
           <i
@@ -198,15 +214,18 @@ const CalculatorApp = ({ setShowCalc }) => {
           <i className="icon-plus"></i>
         </div>
         <div className="numberField">
-          <i className="icon-calendar"></i>
+          <i className="icon-date"></i>
         </div>
         <div className="numberField" onClick={() => handleNumber(0)}>
           <span>0</span>
         </div>
         <div className="numberField " onClick={() => addPoint()}>
-          <i className="icon-point"></i>
+          <span>.</span>
         </div>
-        <div className="numberField check" onClick={showIcon && handleResult}>
+        <div
+          className={`numberField check background-${theme}`}
+          onClick={showIcon && handleResult}
+        >
           {showIcon ? <img src={equal} alt="" /> : <img src={check} alt="" />}
         </div>
       </div>

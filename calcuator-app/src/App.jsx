@@ -12,6 +12,7 @@ import Index from "./components/Index";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Category from "./components/Category";
+import PrivateRoute from "./components/PrivateRoute";
 
 const App = () => {
   const [showCalc, setShowCalc] = useState(false);
@@ -21,10 +22,33 @@ const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Index />}>
-        <Route path="/" index element={<Category />} />
-        <Route path="/transactions" element={<h1>transactions</h1>} />
-        <Route path="/budgets" element={<h1>budgets</h1>} />
+        <Route
+          path="/"
+          index
+          element={
+            <PrivateRoute>
+              <Category />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/transactions"
+          element={
+            <PrivateRoute>
+              <h1>transactions</h1>
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/budgets"
+          element={
+            <PrivateRoute>
+              <h1>budgets</h1>
+            </PrivateRoute>
+          }
+        />
       </Route>
+
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Register />} />
     </Routes>

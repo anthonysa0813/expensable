@@ -1,7 +1,11 @@
 import React, { useState } from "react";
+import { useContext } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
+import { UserContext } from "../context/UserContext";
 
 const useLogin = (initialState = {}) => {
+  const { userObj, setUserObj } = useContext(UserContext);
+
   const [user, setUser] = useState(initialState);
   const { email, password } = user;
   const [error, setError] = useState(false);
@@ -16,6 +20,7 @@ const useLogin = (initialState = {}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log({ user });
     if (Object.values(user).includes("")) {
       console.log("Please enter your email and password buhh");
       setError(true);
@@ -25,7 +30,7 @@ const useLogin = (initialState = {}) => {
     const url = "https://expensable-api.herokuapp.com/";
 
     const login = async (user) => {
-      const response = await fetch(`${url}/login`, {
+      const response = await fetch(`${url}login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -33,7 +38,8 @@ const useLogin = (initialState = {}) => {
         body: JSON.stringify(user),
       });
       const data = await response.json();
-
+      console.log(data);
+      setUserObj(data);
       return data;
     };
     login(user)

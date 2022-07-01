@@ -180,3 +180,53 @@ main {
 .color-blue {
   color: white !important;
 }
+
+.border-radius-50 {
+  border-radius: 50%;
+  background-color: white;
+}
+
+.p-2 {
+  padding: 0.5rem;
+}
+
+.font-red {
+  color: 2px solid #f43f5e !important;
+}
+
+.font-orange {
+  color: var(--orange-500) !important;
+}
+
+.font-yellow {
+  color: var(--yellow-500) !important;
+}
+
+.font-green {
+  color: var(--green-600) !important;
+}
+
+.font-teal {
+  color: var(--teal-500) !important;
+}
+
+.font-cyan {
+  color: var(--cyan-500) !important;
+}
+
+.font-light-blue {
+  color: var(--light-blue-500) !important;
+}
+
+.font-blue {
+  color: var(--blue-500) !important;
+}
+
+.alert-danger {
+  padding: 1rem;
+  border: 1px solid var(--red-500) !important;
+  color: var(--red-500) !important;
+  text-align: center;
+  border-radius: 6px;
+  margin-block-end: 1rem;
+}

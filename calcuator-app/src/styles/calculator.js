@@ -15,6 +15,7 @@ export const CalculatorContainer = styled.div`
 
 export const Calculator = styled.div`
   display: grid;
+
   grid-template-columns: repeat(5, 50px);
   grid-template-rows: repeat(7, 50px);
   background-color: white;
@@ -27,6 +28,16 @@ export const Calculator = styled.div`
     "num num num num num"
     "num num num num num"
     "footer footer footer footer footer";
+  & .infoHead {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    & h4,
+    h3 {
+      margin: 0;
+    }
+  }
   & .calcHead {
     grid-area: header;
     background-color: white;
