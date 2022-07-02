@@ -44,17 +44,24 @@ export const typography = {
     font-size: 1.25rem;
     line-height: 1.75rem;
     weight: 500;
-    `,
+    `
+  },
+    overlined: {
+    md:`
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    weight: 400;
+    `
   },
   heading: {
     sm: `
-    font-size: 1.5rem;
-    line-height: 2rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
     weight: 600;
     `,
     md: `
-    font-size: 1.87rem;
-    line-height: 2.25rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
     weight: 600;
     `
   }
