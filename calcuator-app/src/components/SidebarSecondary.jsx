@@ -3,6 +3,7 @@ import { useState } from "react";
 import { monthContext } from "../context/monthContext";
 import { getApi } from "../hooks/getFetch";
 import { SidebarSecondContainer } from "../styles/sidebarSecondary";
+import ListTransactions from "./ListTransactions";
 
 const SidebarSecondary = () => {
   const [categories, setCategories] = useState([]);
@@ -73,6 +74,10 @@ const SidebarSecondary = () => {
         <h2>Transactions</h2>
         <i className="icon-filter"></i>
       </div>
+      <ListTransactions
+        arrTransactions={transactions}
+        globalMonth={globalMonth}
+      />
     </SidebarSecondContainer>
   );
 };
