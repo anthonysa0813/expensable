@@ -8,7 +8,7 @@ const Container = styled.div`
 
 const CheckboxesContainer = styled.div`
   display: flex;
-  gap: 0.5rem;
+  gap: 0.75rem;
   flex-wrap: wrap;
   width: 100%;
 `;

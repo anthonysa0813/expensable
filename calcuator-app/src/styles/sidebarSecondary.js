@@ -10,10 +10,12 @@ export const SidebarSecondContainer = styled.div`
       margin: 0;
     }
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
   }
 `;
+
 
 const StyledInput = styled.input`
   padding: 8px 12px;
