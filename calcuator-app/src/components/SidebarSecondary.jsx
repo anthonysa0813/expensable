@@ -4,6 +4,7 @@ import { monthContext } from "../context/monthContext";
 import { getApi } from "../hooks/getFetch";
 import { SidebarSecondContainer } from "../styles/sidebarSecondary";
 import ListTransactions from "./ListTransactions";
+import Checkbox from "./Checkbox";
 
 const SidebarSecondary = () => {
   const [categories, setCategories] = useState([]);
@@ -73,6 +74,17 @@ const SidebarSecondary = () => {
       <div className="transactionHead ">
         <h2>Transactions</h2>
         <i className="icon-filter"></i>
+        <div className="showFilters">
+          <h4>Category</h4>
+        <Checkbox name="cats" label ="Rent"/>
+        <Checkbox name="cats" label ="Salary"/>
+        <Checkbox name="cats" label ="Transport"/>
+        <Checkbox name="cats" label ="Education"/>
+        <Checkbox name="cats" label ="Groceries"/>
+        <Checkbox name="cats" label ="Gifts"/>
+
+        </div>
+        
       </div>
       <ListTransactions
         arrTransactions={transactions}
