@@ -2,8 +2,10 @@ import React, { useContext, useEffect } from "react";
 import { useState } from "react";
 import { monthContext } from "../context/monthContext";
 import { getApi } from "../hooks/getFetch";
-import { SidebarSecondContainer } from "../styles/sidebarSecondary";
+import Input, { SidebarSecondContainer } from "../styles/sidebarSecondary";
 import ListTransactions from "./ListTransactions";
+import Checkbox from "./Checkbox";
+
 
 const SidebarSecondary = () => {
   const [categories, setCategories] = useState([]);
@@ -68,11 +70,49 @@ const SidebarSecondary = () => {
     }
   }, [globalMonth]);
 
+  //esto es lo de checkbox, pero no sé como incluirlo sin romper todo el código:
+   
+    //const categories =[
+      //{name: "Rent"},
+      //{name: "Salary"},
+      //{name: "Transport"},
+      //{name: "Education"},
+      //{name: "Groceries"},
+      //{name: "Gifts"},
+    //]
+
+
+    //function Filters(){
+      //return(
+        //<CheckBoxGroups title="Category" checkboxes={categories}/>
+      //);
+    //}
+
+
+
   return (
-    <SidebarSecondContainer className="debug">
+   <SidebarSecondContainer className="debug">
       <div className="transactionHead ">
         <h2>Transactions</h2>
         <i className="icon-filter"></i>
+          <div className="showFilters">
+            <h4>Category</h4>
+            <Checkbox name="cats" label ="Rent"/>
+            <Checkbox name="cats" label ="Salary"/>
+            <Checkbox name="cats" label ="Transport"/>
+            <Checkbox name="cats" label ="Education"/>
+            <Checkbox name="cats" label ="Groceries"/>
+            <Checkbox name="cats" label ="Gifts"/>
+          </div>
+          <div className="Amount">
+            <Input label="min" name ="min-amount"/>
+            <Input label="max" name="max-amount"/>
+          </div>
+          <div className="Dates">
+            <h4>Date</h4>
+            <Input label="from" type= "date"/>
+            <Input label="to" type= "date"/>
+          </div>
       </div>
       <ListTransactions
         arrTransactions={transactions}
