@@ -69,6 +69,23 @@ const SidebarSecondary = () => {
     }
   }, [globalMonth]);
 
+  //esto es lo de checkbox, pero no sé como incluirlo sin romper todo el código:
+    //const CheckboxesContainer=styled`
+      //display: flex;
+      //gap: 0.75rem;
+      //flex-wrap: wrap;
+      //width: 100%;
+    //`;
+
+    //const categories =[
+      //{name: "Rent"},
+      //{name: "Salary"},
+      //{name: "Transport"},
+      //{name: "Education"},
+      //{name: "Groceries"},
+      //{name: "Gifts"},
+    //]
+
   return (
     <SidebarSecondContainer className="debug">
       <div className="transactionHead ">

@@ -14,14 +14,11 @@ const StyledCheckbox =styled.input`
   accent-color: ${colors.pink[600]};
 `;
 
-export default function Checkbox(props){
+export default function Checkbox({id, name, label, ...rest}){
   return (
     <Container>
-      <StyledCheckbox type="checkbox" id={props.id || props.name} {...props}/>
-        <label htmlFor ={props.id || props.name}>
-          {props.label || props.name}
-
-        </label>
+      <StyledCheckbox type="checkbox" id={id || name} {...rest}/>
+        <label htmlFor ={id || name}>{label || name} </label>
     </Container>
   );
 }
