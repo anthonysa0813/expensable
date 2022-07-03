@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { useState } from "react";
 import { monthContext } from "../context/monthContext";
 import { getApi } from "../hooks/getFetch";
-import { SidebarSecondContainer } from "../styles/sidebarSecondary";
+import Input, { SidebarSecondContainer } from "../styles/sidebarSecondary";
 import ListTransactions from "./ListTransactions";
 import Checkbox from "./Checkbox";
 
@@ -82,9 +82,16 @@ const SidebarSecondary = () => {
         <Checkbox name="cats" label ="Education"/>
         <Checkbox name="cats" label ="Groceries"/>
         <Checkbox name="cats" label ="Gifts"/>
-
         </div>
-        
+        <div className="Amount">¶
+          <Input label="min" name ="min-amount"/>
+          <Input label="max" name="max-amount"/>
+        </div>
+        <div className="Amount">
+          <h4>Date</h4>
+          <Input label="from" type= "date"/>
+          <Input label="to" type= "date"/>
+        </div>
       </div>
       <ListTransactions
         arrTransactions={transactions}
